@@ -1,0 +1,10 @@
+excludes:
+  scopes:
+    - pattern: "devDependencies"
+      reason: "DEV_DEPENDENCY_OF"
+      comment: "Packages for development only."
+resolutions:
+  issues:
+    - message: ".*Unknown user config.*"
+      reason: "CANT_FIX_ISSUE"
+      comment: "This is surpressed for demo."
