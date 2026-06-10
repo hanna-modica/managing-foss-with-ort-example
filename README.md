@@ -1,9 +1,10 @@
 # Managing Open Source with ORT - Example
 This is an example for the lecture at the HTW on managing open source compliance with ORT / ORT Server
 
-## Instructions
+## Run this example in ORT Server
 
 ### Run ORT Server (Apoapsis)
+This part follows the official documentation from [Apoapsis](https://eclipse-apoapsis.github.io/ort-server/docs/admin-guide/getting-started/docker-compose)
 1. Download and install [Docker](https://docs.docker.com/get-started/) on your machine.
 2. Clone [ORT Server](https://github.com/eclipse-apoapsis/ort-server).
 3. Run `docker compose up` in the ORT Server directory.
@@ -35,13 +36,20 @@ Hint: The initial run can take quite some time, but consecutive runs will use ca
    are issues, rules violations or security vulnerabilities.
 2. You can also access the `scan-report-web-app.html` under "Reports" > "Other" to get some visualized details on the run results.
 
-### Add some rules
+## Adding rules to ORT Server
 To be alerted for e.g. problematic licenses, you can add rules to the file 
 located at `ort-server/scripts/compose/config/evaluator.rules.kts`.
-There is an example file you can copy in the resources folder.
 
-After editing the rules file, you do not need to restart the docker, but you
-need to start a new run.
+This repository contains an example for a rule that does not allow GPL-2.0 at [resources/evaluator.rules.kts](./resources/evaluator.rules.kts)
+
+After editing the rules file in ORT Server, you do not need to restart the docker container.
+Just start a new run to verify the rule is effective.
+
+## Tasks for students
+
+1. Find an alternative solution to that in the lecture to eliminate the GPL license.
+2. Take care of the vulnerability.
+3. Let the reporter generate a Disclosure Document.
 
 
 ## Notice
