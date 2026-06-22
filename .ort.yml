@@ -6,7 +6,11 @@ excludes:
 package_configurations:
 - id: 'NPM::uri-js:4.4.1'
   source_artifact_url: "https://registry.npmjs.org/uri-js/-/uri-js-4.4.1.tgz"
-  path_excludes:
-  - pattern: "tests/**"
-    reason: "TEST_OF"
-    comment: "This directory contains tests only - this is not the preferred solution, but only an example how to use path_excludes"
+  license_finding_curations:
+  - path: "tests/qunit.js"
+    start_lines: 7
+    line_count: 2
+    detected_license: "MIT OR GPL-2.0-only"
+    reason: "CODE"
+    comment: "This is only an example, how this could be solved. There is a better solution"
+    concluded_license: "MIT"
