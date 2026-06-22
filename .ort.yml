@@ -3,14 +3,10 @@ excludes:
     - pattern: "devDependencies"
       reason: "DEV_DEPENDENCY_OF"
       comment: "Packages for development only."
-package_configurations:
-- id: 'NPM::uri-js:4.4.1'
-  source_artifact_url: "https://registry.npmjs.org/uri-js/-/uri-js-4.4.1.tgz"
-  license_finding_curations:
-  - path: "tests/qunit.js"
-    start_lines: 7
-    line_count: 2
-    detected_license: "MIT OR GPL-2.0-only"
-    reason: "CODE"
-    comment: "This is only an example, how this could be solved. There is a better solution"
-    concluded_license: "MIT"
+license_choices:
+  package_license_choices:
+  - package_id: "NPM::uri-js:4.4.1"
+    license_choices:
+    # The input of the calculated effective license would be: (A OR B) AND ((C OR D) AND E)
+    - given: BSD-2-Clause AND BSD-2-Clause-Views AND BSD-3-Clause AND (GPL-2.0-only OR MIT) AND NOASSERTION
+      choice: BSD-2-Clause AND BSD-2-Clause-Views AND BSD-3-Clause AND OR MIT AND NOASSERTION
