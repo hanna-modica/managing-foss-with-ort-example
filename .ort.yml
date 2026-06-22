@@ -3,10 +3,10 @@ excludes:
     - pattern: "devDependencies"
       reason: "DEV_DEPENDENCY_OF"
       comment: "Packages for development only."
-license_choices:
-  package_license_choices:
-  - package_id: "NPM::uri-js:4.4.1"
-    license_choices:
-    # The input of the calculated effective license would be: (A OR B) AND ((C OR D) AND E)
-    - given: BSD-2-Clause AND BSD-2-Clause-Views AND BSD-3-Clause AND (GPL-2.0-only OR MIT) AND NOASSERTION
-      choice: BSD-2-Clause AND BSD-2-Clause-Views AND BSD-3-Clause AND MIT AND NOASSERTION
+curations:
+  packages:
+  - id: "NPM::uri-js:4.4.1"
+    curations:
+      authors:
+      - "Gary Court"
+      concluded_license: "BSD-2-Clause AND BSD-2-Clause-Views AND BSD-3-Clause AND MIT"
