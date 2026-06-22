@@ -9,4 +9,4 @@ license_choices:
     license_choices:
     # The input of the calculated effective license would be: (A OR B) AND ((C OR D) AND E)
     - given: BSD-2-Clause AND BSD-2-Clause-Views AND BSD-3-Clause AND (GPL-2.0-only OR MIT) AND NOASSERTION
-      choice: BSD-2-Clause AND BSD-2-Clause-Views AND BSD-3-Clause AND OR MIT AND NOASSERTION
+      choice: BSD-2-Clause AND BSD-2-Clause-Views AND BSD-3-Clause AND AND MIT AND NOASSERTION
