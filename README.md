@@ -27,6 +27,8 @@ and hit create.
 ### Start a run
 1. After creating a repository, you are directly forwarded to starting a run.
 2. If you want to scan a branch other then the default branch, enter a branch name in the revision.
+3. In the scanner configuration, select in the ScanCode configuration "Packages only"
+4. In the reporter, enable the reports you are interested in, e.g. HTML Template for Attribution.
 3. The rest do not change and click the create button at the bottom
 
 ### Examine the results

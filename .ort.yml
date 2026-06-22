@@ -3,7 +3,3 @@ excludes:
     - pattern: "devDependencies"
       reason: "DEV_DEPENDENCY_OF"
       comment: "Packages for development only."
-  paths:
-    - pattern: "/resources"
-      reason: "EXAMPLE_OF"
-      comment: "Contains only configuration resources"
