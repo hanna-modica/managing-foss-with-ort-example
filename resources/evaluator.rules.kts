@@ -18,10 +18,10 @@
  * License-Filename: LICENSE
  */
 
-fun noGPL(licenses : List<ResolvedLicense>) =
+fun isGPL() =
     object : RuleMatcher {
-        override val description = "List contains GPL-2.0-only license"
-        override fun matches() = licenses.none { it.license.toString() == "GPL-2.0-only" }
+        override val description = "Is GPL-2.0-only license"
+        override fun matches() = it.license.simpleLicense() == "GPL-2.0-only"
     }
 
 val ruleSet = ruleSet(ortResult, licenseInfoResolver, resolutionProvider) {
@@ -40,15 +40,21 @@ val ruleSet = ruleSet(ortResult, licenseInfoResolver, resolutionProvider) {
 
     packageRule("NO GPL-2.0-only") {
         require{
-            -noGPL(resolvedLicenseInfo.licenses)
+            -isExcluded()
         }
 
-        error(
-            message = "GPL-2.0-only is not allowed by company policy.",
-            howToFix = "Remove component from project, exclude it, make " +
-                    "a license choice, exclude the path in this component (e.g. if test), " +
-                    "or curate the correct license in case of false positive."
-        )
+        licenseRule("NO GPL-2.0-only", LicenseView.CONCLUDED_OR_DECLARED_AND_DETECTED) {
+            require {
+                -isGPL()
+            }
+
+            error(
+                message = "GPL-2.0-only is not allowed by company policy.",
+                howToFix = "Remove component from project, exclude it, make " +
+                        "a license choice, exclude the path in this component (e.g. if test), " +
+                        "or curate the correct license in case of false positive."
+            )
+        }
     }
 }
 
