@@ -18,10 +18,10 @@
  * License-Filename: LICENSE
  */
 
-fun isGPL() =
+fun PackageRule.LicenseRule.isGPL() =
     object : RuleMatcher {
         override val description = "Is GPL-2.0-only license"
-        override fun matches() = it.license.simpleLicense() == "GPL-2.0-only"
+        override fun matches() = license.simpleLicense() == "GPL-2.0-only"
     }
 
 val ruleSet = ruleSet(ortResult, licenseInfoResolver, resolutionProvider) {
@@ -45,7 +45,7 @@ val ruleSet = ruleSet(ortResult, licenseInfoResolver, resolutionProvider) {
 
         licenseRule("NO GPL-2.0-only", LicenseView.CONCLUDED_OR_DECLARED_AND_DETECTED) {
             require {
-                -isGPL()
+                +isGPL()
             }
 
             error(
